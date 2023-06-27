@@ -3,7 +3,7 @@ title = "教程"
 linkTitle = "教程"
 date = 2023-06-26T19:29:06+08:00
 type = "docs"
-description = ""
+description = "从这里看起"
 isCJKLanguage = true
 draft = false
 [menu.main]
@@ -12,7 +12,7 @@ draft = false
 
 # Python 教程
 
-https://docs.python.org/zh-cn/3/tutorial/index.html
+https://docs.python.org/zh-cn/3.11/tutorial/index.html
 
 ​	Python 是一门易于学习、功能强大的编程语言。它提供了高效的高级数据结构，还能简单有效地面向对象编程。Python 优雅的语法和动态类型以及解释型语言的本质，使它成为多数平台上写脚本和快速开发应用的理想语言。
 
@@ -22,8 +22,8 @@ https://docs.python.org/zh-cn/3/tutorial/index.html
 
 ​	本教程只是简单介绍了 Python 语言概念和功能。读者在阅读本教程时最好使用 Python 解释器以便随时动手练习。本教程中的所有示例都是相互独立的并可离线阅读。
 
-​	标准库与模块的内容详见 [Python 标准库](https://docs.python.org/zh-cn/3/library/index.html#library-index)。[Python 语言参考手册](https://docs.python.org/zh-cn/3/reference/index.html#reference-index) 是更正规的语言定义。如要编写 C 或 C++ 扩展请参考 [扩展和嵌入 Python 解释器](https://docs.python.org/zh-cn/3/extending/index.html#extending-index) 和 [Python/C API 参考手册](https://docs.python.org/zh-cn/3/c-api/index.html#c-api-index)。此外，深入讲解 Python 的书籍也有很多。
+​	标准库与模块的内容详见 [Python 标准库](https://docs.python.org/zh-cn/3.11/library/index.html#library-index)。[Python 语言参考手册](https://docs.python.org/zh-cn/3.11/reference/index.html#reference-index) 是更正规的语言定义。如要编写 C 或 C++ 扩展请参考 [扩展和嵌入 Python 解释器](https://docs.python.org/zh-cn/3.11/extending/index.html#extending-index) 和 [Python/C API 参考手册](https://docs.python.org/zh-cn/3.11/c-api/index.html#c-api-index)。此外，深入讲解 Python 的书籍也有很多。
 
-​	本教程对每一个功能的介绍并不完整，甚至没有涉及全部常用功能，只是介绍了 Python 中最值得学习的功能，旨在让读者快速感受一下 Python 的特色。学完本教程的读者可以阅读和编写 Python 模块和程序，也可以继续学习 [Python 标准库](https://docs.python.org/zh-cn/3/library/index.html#library-index)。
+​	本教程对每一个功能的介绍并不完整，甚至没有涉及全部常用功能，只是介绍了 Python 中最值得学习的功能，旨在让读者快速感受一下 Python 的特色。学完本教程的读者可以阅读和编写 Python 模块和程序，也可以继续学习 [Python 标准库](https://docs.python.org/zh-cn/3.11/library/index.html#library-index)。
 
-​	强烈推荐阅读 [术语对照表](https://docs.python.org/zh-cn/3/glossary.html#glossary)。
+​	强烈推荐阅读 [术语对照表](https://docs.python.org/zh-cn/3.11/glossary.html#glossary)。

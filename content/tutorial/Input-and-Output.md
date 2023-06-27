@@ -10,7 +10,7 @@ draft = false
 
 # 7. 输入与输出
 
-https://docs.python.org/zh-cn/3/tutorial/inputoutput.html
+https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html
 
 程序输出有几种显示方式；数据既可以输出供人阅读的形式，也可以写入文件备用。本章探讨一些可用的方式。
 
@@ -18,11 +18,11 @@ https://docs.python.org/zh-cn/3/tutorial/inputoutput.html
 
 ## 7.1. 更复杂的输出格式
 
-至此，我们已学习了两种写入值的方法：*表达式语句* 和 [`print()`](https://docs.python.org/zh-cn/3/library/functions.html#print) 函数。第三种方法是使用文件对象的 `write()` 方法；标准输出文件称为 `sys.stdout`。详见标准库参考。
+至此，我们已学习了两种写入值的方法：*表达式语句* 和 [`print()`](https://docs.python.org/zh-cn/3.11/library/functions.html#print) 函数。第三种方法是使用文件对象的 `write()` 方法；标准输出文件称为 `sys.stdout`。详见标准库参考。
 
 对输出格式的控制不只是打印空格分隔的值，还需要更多方式。格式化输出包括以下几种方法。
 
-- 使用 [格式化字符串字面值](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html#tut-f-strings) ，要在字符串开头的引号/三引号前添加 `f` 或 `F` 。在这种字符串中，可以在 `{` 和 `}` 字符之间输入引用的变量，或字面值的 Python 表达式。
+- 使用 [格式化字符串字面值](https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html#tut-f-strings) ，要在字符串开头的引号/三引号前添加 `f` 或 `F` 。在这种字符串中，可以在 `{` 和 `}` 字符之间输入引用的变量，或字面值的 Python 表达式。
 
   \>>>
 
@@ -33,7 +33,7 @@ https://docs.python.org/zh-cn/3/tutorial/inputoutput.html
   'Results of the 2016 Referendum'
   ```
 
-- 字符串的 [`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法需要更多手动操作。该方法也用 `{` 和 `}` 标记替换变量的位置，虽然这种方法支持详细的格式化指令，但需要提供格式化信息。
+- 字符串的 [`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法需要更多手动操作。该方法也用 `{` 和 `}` 标记替换变量的位置，虽然这种方法支持详细的格式化指令，但需要提供格式化信息。
 
   \>>>
 
@@ -47,9 +47,9 @@ https://docs.python.org/zh-cn/3/tutorial/inputoutput.html
 
 - 最后，还可以用字符串切片和合并操作完成字符串处理操作，创建任何排版布局。字符串类型还支持将字符串按给定列宽进行填充，这些方法也很有用。
 
-如果不需要花哨的输出，只想快速显示变量进行调试，可以用 [`repr()`](https://docs.python.org/zh-cn/3/library/functions.html#repr) 或 [`str()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str) 函数把值转化为字符串。
+如果不需要花哨的输出，只想快速显示变量进行调试，可以用 [`repr()`](https://docs.python.org/zh-cn/3.11/library/functions.html#repr) 或 [`str()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str) 函数把值转化为字符串。
 
-[`str()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str) 函数返回供人阅读的值，[`repr()`](https://docs.python.org/zh-cn/3/library/functions.html#repr) 则生成适于解释器读取的值（如果没有等效的语法，则强制执行 [`SyntaxError`](https://docs.python.org/zh-cn/3/library/exceptions.html#SyntaxError)）。对于没有支持供人阅读展示结果的对象， [`str()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str) 返回与 [`repr()`](https://docs.python.org/zh-cn/3/library/functions.html#repr) 相同的值。一般情况下，数字、列表或字典等结构的值，使用这两个函数输出的表现形式是一样的。字符串有两种不同的表现形式。
+[`str()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str) 函数返回供人阅读的值，[`repr()`](https://docs.python.org/zh-cn/3.11/library/functions.html#repr) 则生成适于解释器读取的值（如果没有等效的语法，则强制执行 [`SyntaxError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#SyntaxError)）。对于没有支持供人阅读展示结果的对象， [`str()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str) 返回与 [`repr()`](https://docs.python.org/zh-cn/3.11/library/functions.html#repr) 相同的值。一般情况下，数字、列表或字典等结构的值，使用这两个函数输出的表现形式是一样的。字符串有两种不同的表现形式。
 
 示例如下：
 
@@ -78,13 +78,13 @@ The value of x is 32.5, and y is 40000...
 "(32.5, 40000, ('spam', 'eggs'))"
 ```
 
-[`string`](https://docs.python.org/zh-cn/3/library/string.html#module-string) 模块包含 [`Template`](https://docs.python.org/zh-cn/3/library/string.html#string.Template) 类，提供了将值替换为字符串的另一种方法。该类使用 `$x` 占位符，并用字典的值进行替换，但对格式控制的支持比较有限。
+[`string`](https://docs.python.org/zh-cn/3.11/library/string.html#module-string) 模块包含 [`Template`](https://docs.python.org/zh-cn/3.11/library/string.html#string.Template) 类，提供了将值替换为字符串的另一种方法。该类使用 `$x` 占位符，并用字典的值进行替换，但对格式控制的支持比较有限。
 
 
 
 ### 7.1.1. 格式化字符串字面值
 
-[格式化字符串字面值](https://docs.python.org/zh-cn/3/reference/lexical_analysis.html#f-strings) （简称为 f-字符串）在字符串前加前缀 `f` 或 `F`，通过 `{expression}` 表达式，把 Python 表达式的值添加到字符串内。
+[格式化字符串字面值](https://docs.python.org/zh-cn/3.11/reference/lexical_analysis.html#f-strings) （简称为 f-字符串）在字符串前加前缀 `f` 或 `F`，通过 `{expression}` 表达式，把 Python 表达式的值添加到字符串内。
 
 格式说明符是可选的，写在表达式后面，可以更好地控制格式化值的方式。下例将 pi 舍入到小数点后三位：
 
@@ -110,7 +110,7 @@ Jack       ==>       4098
 Dcab       ==>       7678
 ```
 
-还有一些修饰符可以在格式化前转换值。 `'!a'` 应用 [`ascii()`](https://docs.python.org/zh-cn/3/library/functions.html#ascii) ，`'!s'` 应用 [`str()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str)，`'!r'` 应用 [`repr()`](https://docs.python.org/zh-cn/3/library/functions.html#repr)：
+还有一些修饰符可以在格式化前转换值。 `'!a'` 应用 [`ascii()`](https://docs.python.org/zh-cn/3.11/library/functions.html#ascii) ，`'!s'` 应用 [`str()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str)，`'!r'` 应用 [`repr()`](https://docs.python.org/zh-cn/3.11/library/functions.html#repr)：
 
 \>>>
 
@@ -134,13 +134,13 @@ The `=` specifier can be used to expand an expression to the text of the express
 Debugging bugs='roaches' count=13 area='living room'
 ```
 
-See [self-documenting expressions](https://docs.python.org/zh-cn/3/whatsnew/3.8.html#bpo-36817-whatsnew) for more information on the `=` specifier. For a reference on these format specifications, see the reference guide for the [格式规格迷你语言](https://docs.python.org/zh-cn/3/library/string.html#formatspec).
+See [self-documenting expressions](https://docs.python.org/zh-cn/3.11/whatsnew/3.8.html#bpo-36817-whatsnew) for more information on the `=` specifier. For a reference on these format specifications, see the reference guide for the [格式规格迷你语言](https://docs.python.org/zh-cn/3.11/library/string.html#formatspec).
 
 
 
 ### 7.1.2. 字符串 format() 方法
 
-[`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法的基本用法如下所示：
+[`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法的基本用法如下所示：
 
 \>>>
 
@@ -149,7 +149,7 @@ See [self-documenting expressions](https://docs.python.org/zh-cn/3/whatsnew/3.8.
 We are the knights who say "Ni!"
 ```
 
-花括号及之内的字符（称为格式字段）被替换为传递给 [`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法的对象。花括号中的数字表示传递给 [`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法的对象所在的位置。
+花括号及之内的字符（称为格式字段）被替换为传递给 [`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法的对象。花括号中的数字表示传递给 [`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法的对象所在的位置。
 
 \>>>
 
@@ -160,7 +160,7 @@ spam and eggs
 eggs and spam
 ```
 
-[`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法中使用关键字参数名引用值。
+[`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法中使用关键字参数名引用值。
 
 \>>>
 
@@ -201,7 +201,7 @@ This could also be done by passing the `table` dictionary as keyword arguments w
 Jack: 4098; Sjoerd: 4127; Dcab: 8637678
 ```
 
-与内置函数 [`vars()`](https://docs.python.org/zh-cn/3/library/functions.html#vars) 结合使用时，这种方式非常实用，可以返回包含所有局部变量的字典。
+与内置函数 [`vars()`](https://docs.python.org/zh-cn/3.11/library/functions.html#vars) 结合使用时，这种方式非常实用，可以返回包含所有局部变量的字典。
 
 As an example, the following lines produce a tidily aligned set of columns giving integers and their squares and cubes:
 
@@ -223,7 +223,7 @@ As an example, the following lines produce a tidily aligned set of columns givin
 10 100 1000
 ```
 
-[`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 进行字符串格式化的完整概述详见 [格式字符串语法](https://docs.python.org/zh-cn/3/library/string.html#formatstrings) 。
+[`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 进行字符串格式化的完整概述详见 [格式字符串语法](https://docs.python.org/zh-cn/3.11/library/string.html#formatstrings) 。
 
 ### 7.1.3. 手动格式化字符串
 
@@ -249,11 +249,11 @@ As an example, the following lines produce a tidily aligned set of columns givin
 10 100 1000
 ```
 
-（注意，每列之间的空格是通过使用 [`print()`](https://docs.python.org/zh-cn/3/library/functions.html#print) 添加的：它总在其参数间添加空格。）
+（注意，每列之间的空格是通过使用 [`print()`](https://docs.python.org/zh-cn/3.11/library/functions.html#print) 添加的：它总在其参数间添加空格。）
 
-字符串对象的 [`str.rjust()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.rjust) 方法通过在左侧填充空格，对给定宽度字段中的字符串进行右对齐。同类方法还有 [`str.ljust()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.ljust) 和 [`str.center()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.center) 。这些方法不写入任何内容，只返回一个新字符串，如果输入的字符串太长，它们不会截断字符串，而是原样返回；虽然这种方式会弄乱列布局，但也比另一种方法好，后者在显示值时可能不准确（如果真的想截断字符串，可以使用 `x.ljust(n)[:n]` 这样的切片操作 。）
+字符串对象的 [`str.rjust()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.rjust) 方法通过在左侧填充空格，对给定宽度字段中的字符串进行右对齐。同类方法还有 [`str.ljust()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.ljust) 和 [`str.center()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.center) 。这些方法不写入任何内容，只返回一个新字符串，如果输入的字符串太长，它们不会截断字符串，而是原样返回；虽然这种方式会弄乱列布局，但也比另一种方法好，后者在显示值时可能不准确（如果真的想截断字符串，可以使用 `x.ljust(n)[:n]` 这样的切片操作 。）
 
-另一种方法是 [`str.zfill()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.zfill) ，该方法在数字字符串左边填充零，且能识别正负号：
+另一种方法是 [`str.zfill()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.zfill) ，该方法在数字字符串左边填充零，且能识别正负号：
 
 \>>>
 
@@ -278,13 +278,13 @@ As an example, the following lines produce a tidily aligned set of columns givin
 The value of pi is approximately 3.142.
 ```
 
-[printf 风格的字符串格式化](https://docs.python.org/zh-cn/3/library/stdtypes.html#old-string-formatting) 小节介绍更多相关内容。
+[printf 风格的字符串格式化](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#old-string-formatting) 小节介绍更多相关内容。
 
 
 
 ## 7.2. 读写文件
 
-[`open()`](https://docs.python.org/zh-cn/3/library/functions.html#open) 返回一个 [file object](https://docs.python.org/zh-cn/3/glossary.html#term-file-object) ，最常使用的是两个位置参数和一个关键字参数：`open(filename, mode, encoding=None)`
+[`open()`](https://docs.python.org/zh-cn/3.11/library/functions.html#open) 返回一个 [file object](https://docs.python.org/zh-cn/3.11/glossary.html#term-file-object) ，最常使用的是两个位置参数和一个关键字参数：`open(filename, mode, encoding=None)`
 
 \>>>
 
@@ -294,11 +294,11 @@ The value of pi is approximately 3.142.
 
 第一个实参是文件名字符串。第二个实参是包含描述文件使用方式字符的字符串。*mode* 的值包括 `'r'` ，表示文件只能读取；`'w'` 表示只能写入（现有同名文件会被覆盖）；`'a'` 表示打开文件并追加内容，任何写入的数据会自动添加到文件末尾。`'r+'` 表示打开文件进行读写。*mode* 实参是可选的，省略时的默认值为 `'r'`。
 
-通常情况下，文件是以 *text mode* 打开的，也就是说，你从文件中读写字符串，这些字符串是以特定的 *encoding* 编码的。如果没有指定 *encoding* ，默认的是与平台有关的（见 [`open()`](https://docs.python.org/zh-cn/3/library/functions.html#open) ）。因为 UTF-8 是现代事实上的标准，除非你知道你需要使用一个不同的编码，否则建议使用 `encoding="utf-8"` 。在模式后面加上一个 `'b'` ，可以用 *binary mode* 打开文件。二进制模式的数据是以 [`bytes`](https://docs.python.org/zh-cn/3/library/stdtypes.html#bytes) 对象的形式读写的。在二进制模式下打开文件时，你不能指定 *encoding* 。
+通常情况下，文件是以 *text mode* 打开的，也就是说，你从文件中读写字符串，这些字符串是以特定的 *encoding* 编码的。如果没有指定 *encoding* ，默认的是与平台有关的（见 [`open()`](https://docs.python.org/zh-cn/3.11/library/functions.html#open) ）。因为 UTF-8 是现代事实上的标准，除非你知道你需要使用一个不同的编码，否则建议使用 `encoding="utf-8"` 。在模式后面加上一个 `'b'` ，可以用 *binary mode* 打开文件。二进制模式的数据是以 [`bytes`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#bytes) 对象的形式读写的。在二进制模式下打开文件时，你不能指定 *encoding* 。
 
 在文本模式下读取文件时，默认把平台特定的行结束符（Unix 上为 `\n`, Windows 上为 `\r\n`）转换为 `\n`。在文本模式下写入数据时，默认把 `\n` 转换回平台特定结束符。这种操作方式在后台修改文件数据对文本文件来说没有问题，但会破坏 `JPEG` 或 `EXE` 等二进制文件中的数据。注意，在读写此类文件时，一定要使用二进制模式。
 
-在处理文件对象时，最好使用 [`with`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#with) 关键字。优点是，子句体结束后，文件会正确关闭，即便触发异常也可以。而且，使用 `with` 相比等效的 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try)-[`finally`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#finally) 代码块要简短得多：
+在处理文件对象时，最好使用 [`with`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#with) 关键字。优点是，子句体结束后，文件会正确关闭，即便触发异常也可以。而且，使用 `with` 相比等效的 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try)-[`finally`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#finally) 代码块要简短得多：
 
 \>>>
 
@@ -311,7 +311,7 @@ The value of pi is approximately 3.142.
 True
 ```
 
-如果没有使用 [`with`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#with) 关键字，则应调用 `f.close()` 关闭文件，即可释放文件占用的系统资源。
+如果没有使用 [`with`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#with) 关键字，则应调用 `f.close()` 关闭文件，即可释放文件占用的系统资源。
 
 警告
 
@@ -319,7 +319,7 @@ True
 
 调用 `f.write()` 时，未使用 `with` 关键字，或未调用 `f.close()`，即使程序正常退出，也**可能** 导致 `f.write()` 的参数没有完全写入磁盘。
 
-通过 [`with`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#with) 语句，或调用 `f.close()` 关闭文件对象后，再次使用该文件对象将会失败。
+通过 [`with`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#with) 语句，或调用 `f.close()` 关闭文件对象后，再次使用该文件对象将会失败。
 
 \>>>
 
@@ -421,11 +421,11 @@ b'd'
 
 
 
-### 7.2.2. 使用 [`json`](https://docs.python.org/zh-cn/3/library/json.html#module-json) 保存结构化数据
+### 7.2.2. 使用 [`json`](https://docs.python.org/zh-cn/3.11/library/json.html#module-json) 保存结构化数据
 
-从文件写入或读取字符串很简单，数字则稍显麻烦，因为 `read()` 方法只返回字符串，这些字符串必须传递给 [`int()`](https://docs.python.org/zh-cn/3/library/functions.html#int) 这样的函数，接受 `'123'` 这样的字符串，并返回数字值 123。保存嵌套列表、字典等复杂数据类型时，手动解析和序列化的操作非常复杂。
+从文件写入或读取字符串很简单，数字则稍显麻烦，因为 `read()` 方法只返回字符串，这些字符串必须传递给 [`int()`](https://docs.python.org/zh-cn/3.11/library/functions.html#int) 这样的函数，接受 `'123'` 这样的字符串，并返回数字值 123。保存嵌套列表、字典等复杂数据类型时，手动解析和序列化的操作非常复杂。
 
-Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows you to use the popular data interchange format called [JSON (JavaScript Object Notation)](https://json.org/). The standard module called [`json`](https://docs.python.org/zh-cn/3/library/json.html#module-json) can take Python data hierarchies, and convert them to string representations; this process is called *serializing*. Reconstructing the data from the string representation is called *deserializing*. Between serializing and deserializing, the string representing the object may have been stored in a file or data, or sent over a network connection to some distant machine.
+Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows you to use the popular data interchange format called [JSON (JavaScript Object Notation)](https://json.org/). The standard module called [`json`](https://docs.python.org/zh-cn/3.11/library/json.html#module-json) can take Python data hierarchies, and convert them to string representations; this process is called *serializing*. Reconstructing the data from the string representation is called *deserializing*. Between serializing and deserializing, the string representing the object may have been stored in a file or data, or sent over a network connection to some distant machine.
 
 备注
 
@@ -444,13 +444,13 @@ JSON 格式通常用于现代应用程序的数据交换。程序员早已对它
 '[1, "simple", "list"]'
 ```
 
-[`dumps()`](https://docs.python.org/zh-cn/3/library/json.html#json.dumps) 函数还有一个变体， [`dump()`](https://docs.python.org/zh-cn/3/library/json.html#json.dump) ，它只将对象序列化为 [text file](https://docs.python.org/zh-cn/3/glossary.html#term-text-file) 。因此，如果 `f` 是 [text file](https://docs.python.org/zh-cn/3/glossary.html#term-text-file) 对象，可以这样做：
+[`dumps()`](https://docs.python.org/zh-cn/3.11/library/json.html#json.dumps) 函数还有一个变体， [`dump()`](https://docs.python.org/zh-cn/3.11/library/json.html#json.dump) ，它只将对象序列化为 [text file](https://docs.python.org/zh-cn/3.11/glossary.html#term-text-file) 。因此，如果 `f` 是 [text file](https://docs.python.org/zh-cn/3.11/glossary.html#term-text-file) 对象，可以这样做：
 
 ```
 json.dump(x, f)
 ```
 
-要再次解码对象，如果 `f` 是已打开、供读取的 [binary file](https://docs.python.org/zh-cn/3/glossary.html#term-binary-file) 或 [text file](https://docs.python.org/zh-cn/3/glossary.html#term-text-file) 对象：
+要再次解码对象，如果 `f` 是已打开、供读取的 [binary file](https://docs.python.org/zh-cn/3.11/glossary.html#term-binary-file) 或 [text file](https://docs.python.org/zh-cn/3.11/glossary.html#term-text-file) 对象：
 
 ```
 x = json.load(f)
@@ -460,14 +460,14 @@ x = json.load(f)
 
  
 
-JSON文件必须以UTF-8编码。当打开JSON文件作为一个 [text file](https://docs.python.org/zh-cn/3/glossary.html#term-text-file) 用于读写时，使用 `encoding="utf-8"` 。
+JSON文件必须以UTF-8编码。当打开JSON文件作为一个 [text file](https://docs.python.org/zh-cn/3.11/glossary.html#term-text-file) 用于读写时，使用 `encoding="utf-8"` 。
 
-这种简单的序列化技术可以处理列表和字典，但在 JSON 中序列化任意类的实例，则需要付出额外努力。[`json`](https://docs.python.org/zh-cn/3/library/json.html#module-json) 模块的参考包含对此的解释。
+这种简单的序列化技术可以处理列表和字典，但在 JSON 中序列化任意类的实例，则需要付出额外努力。[`json`](https://docs.python.org/zh-cn/3.11/library/json.html#module-json) 模块的参考包含对此的解释。
 
 参见
 
  
 
-[`pickle`](https://docs.python.org/zh-cn/3/library/pickle.html#module-pickle) - 封存模块
+[`pickle`](https://docs.python.org/zh-cn/3.11/library/pickle.html#module-pickle) - 封存模块
 
-与 [JSON](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html#tut-json) 不同，*pickle* 是一种允许对复杂 Python 对象进行序列化的协议。因此，它为 Python 所特有，不能用于与其他语言编写的应用程序通信。默认情况下它也是不安全的：如果解序化的数据是由手段高明的攻击者精心设计的，这种不受信任来源的 pickle 数据可以执行任意代码。
+与 [JSON](https://docs.python.org/zh-cn/3.11/tutorial/inputoutput.html#tut-json) 不同，*pickle* 是一种允许对复杂 Python 对象进行序列化的协议。因此，它为 Python 所特有，不能用于与其他语言编写的应用程序通信。默认情况下它也是不安全的：如果解序化的数据是由手段高明的攻击者精心设计的，这种不受信任来源的 pickle 数据可以执行任意代码。

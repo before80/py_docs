@@ -10,7 +10,7 @@ draft = false
 
 # 5. 数据结构
 
-https://docs.python.org/zh-cn/3/tutorial/datastructures.html
+https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html
 
 本章深入讲解之前学过的一些内容，同时，还增加了新的知识点。
 
@@ -34,7 +34,7 @@ https://docs.python.org/zh-cn/3/tutorial/datastructures.html
 
 - list.**remove**(*x*)
 
-  从列表中删除第一个值为 *x* 的元素。未找到指定元素时，触发 [`ValueError`](https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError) 异常。
+  从列表中删除第一个值为 *x* 的元素。未找到指定元素时，触发 [`ValueError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#ValueError) 异常。
 
 - list.**pop**([*i*])
 
@@ -46,7 +46,7 @@ https://docs.python.org/zh-cn/3/tutorial/datastructures.html
 
 - list.**index**(*x*[, *start*[, *end*]])
 
-  返回列表中第一个值为 *x* 的元素的零基索引。未找到指定元素时，触发 [`ValueError`](https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError) 异常。可选参数 *start* 和 *end* 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 *start* 参数。
+  返回列表中第一个值为 *x* 的元素的零基索引。未找到指定元素时，触发 [`ValueError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#ValueError) 异常。可选参数 *start* 和 *end* 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 *start* 参数。
 
 - list.**count**(*x*)
 
@@ -54,7 +54,7 @@ https://docs.python.org/zh-cn/3/tutorial/datastructures.html
 
 - list.**sort**(***, *key=None*, *reverse=False*)
 
-  就地排序列表中的元素（要了解自定义排序参数，详见 [`sorted()`](https://docs.python.org/zh-cn/3/library/functions.html#sorted)）。
+  就地排序列表中的元素（要了解自定义排序参数，详见 [`sorted()`](https://docs.python.org/zh-cn/3.11/library/functions.html#sorted)）。
 
 - list.**reverse**()
 
@@ -91,7 +91,7 @@ https://docs.python.org/zh-cn/3/tutorial/datastructures.html
 'pear'
 ```
 
-You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`. [1](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#id2) This is a design principle for all mutable data structures in Python.
+You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`. [1](https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html#id2) This is a design principle for all mutable data structures in Python.
 
 还有，不是所有数据都可以排序或比较。例如，`[None, 'hello', 10]` 就不可排序，因为整数不能与字符串对比，而 *None* 不能与其他类型对比。有些类型根本就没有定义顺序关系，例如，`3+4j < 5+7j` 这种对比操作就是无效的。
 
@@ -127,7 +127,7 @@ You might have noticed that methods like `insert`, `remove` or `sort` that only 
 
 列表也可以用作队列，最先加入的元素，最先取出（“先进先出”）；然而，列表作为队列的效率很低。因为，在列表末尾添加和删除元素非常快，但在列表开头插入或移除元素却很慢（因为所有其他元素都必须移动一位）。
 
-实现队列最好用 [`collections.deque`](https://docs.python.org/zh-cn/3/library/collections.html#collections.deque)，可以快速从两端添加或删除元素。例如：
+实现队列最好用 [`collections.deque`](https://docs.python.org/zh-cn/3.11/library/collections.html#collections.deque)，可以快速从两端添加或删除元素。例如：
 
 \>>>
 
@@ -201,7 +201,7 @@ squares = [x**2 for x in range(10)]
 [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
 ```
 
-注意，上面两段代码中，[`for`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for) 和 [`if`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#if) 的顺序相同。
+注意，上面两段代码中，[`for`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#for) 和 [`if`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#if) 的顺序相同。
 
 表达式是元组（例如上例的 `(x, y)`）时，必须加上括号：
 
@@ -272,7 +272,7 @@ SyntaxError: did you forget parentheses around the comprehension target?
 [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
 ```
 
-As we saw in the previous section, the inner list comprehension is evaluated in the context of the [`for`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for) that follows it, so this example is equivalent to:
+As we saw in the previous section, the inner list comprehension is evaluated in the context of the [`for`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#for) that follows it, so this example is equivalent to:
 
 \>>>
 
@@ -302,7 +302,7 @@ As we saw in the previous section, the inner list comprehension is evaluated in 
 [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
 ```
 
-实际应用中，最好用内置函数替代复杂的流程语句。此时，[`zip()`](https://docs.python.org/zh-cn/3/library/functions.html#zip) 函数更好用：
+实际应用中，最好用内置函数替代复杂的流程语句。此时，[`zip()`](https://docs.python.org/zh-cn/3.11/library/functions.html#zip) 函数更好用：
 
 \>>>
 
@@ -311,13 +311,13 @@ As we saw in the previous section, the inner list comprehension is evaluated in 
 [(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)]
 ```
 
-关于本行中星号的详细说明，参见 [解包实参列表](https://docs.python.org/zh-cn/3/tutorial/controlflow.html#tut-unpacking-arguments)。
+关于本行中星号的详细说明，参见 [解包实参列表](https://docs.python.org/zh-cn/3.11/tutorial/controlflow.html#tut-unpacking-arguments)。
 
 
 
 ## 5.2. `del` 语句
 
-[`del`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#del) 语句按索引，而不是值从列表中移除元素。与返回值的 `pop()` 方法不同， `del` 语句也可以从列表中移除切片，或清空整个列表（之前是将空列表赋值给切片）。 例如：
+[`del`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#del) 语句按索引，而不是值从列表中移除元素。与返回值的 `pop()` 方法不同， `del` 语句也可以从列表中移除切片，或清空整个列表（之前是将空列表赋值给切片）。 例如：
 
 \>>>
 
@@ -334,7 +334,7 @@ As we saw in the previous section, the inner list comprehension is evaluated in 
 []
 ```
 
-[`del`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#del) 也可以用来删除整个变量：
+[`del`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#del) 也可以用来删除整个变量：
 
 \>>>
 
@@ -342,13 +342,13 @@ As we saw in the previous section, the inner list comprehension is evaluated in 
 >>> del a
 ```
 
-此后，再引用 `a` 就会报错（直到为它赋与另一个值）。后文会介绍 [`del`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#del) 的其他用法。
+此后，再引用 `a` 就会报错（直到为它赋与另一个值）。后文会介绍 [`del`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#del) 的其他用法。
 
 
 
 ## 5.3. 元组和序列
 
-列表和字符串有很多共性，例如，索引和切片操作。这两种数据类型是 *序列* （参见 [序列类型 --- list, tuple, range](https://docs.python.org/zh-cn/3/library/stdtypes.html#typesseq)）。随着 Python 语言的发展，其他的序列类型也被加入其中。本节介绍另一种标准序列类型：*元组*。
+列表和字符串有很多共性，例如，索引和切片操作。这两种数据类型是 *序列* （参见 [序列类型 --- list, tuple, range](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#typesseq)）。随着 Python 语言的发展，其他的序列类型也被加入其中。本节介绍另一种标准序列类型：*元组*。
 
 元组由多个用逗号隔开的值组成，例如：
 
@@ -377,7 +377,7 @@ TypeError: 'tuple' object does not support item assignment
 
 输出时，元组都要由圆括号标注，这样才能正确地解释嵌套元组。输入时，圆括号可有可无，不过经常是必须的（如果元组是更大的表达式的一部分）。不允许为元组中的单个元素赋值，当然，可以创建含列表等可变对象的元组。
 
-虽然，元组与列表很像，但使用场景不同，用途也不同。元组是 [immutable](https://docs.python.org/zh-cn/3/glossary.html#term-immutable) （不可变的），一般可包含异质元素序列，通过解包（见本节下文）或索引访问（如果是 [`namedtuples`](https://docs.python.org/zh-cn/3/library/collections.html#collections.namedtuple)，可以属性访问）。列表是 [mutable](https://docs.python.org/zh-cn/3/glossary.html#term-mutable) （可变的），列表元素一般为同质类型，可迭代访问。
+虽然，元组与列表很像，但使用场景不同，用途也不同。元组是 [immutable](https://docs.python.org/zh-cn/3.11/glossary.html#term-immutable) （不可变的），一般可包含异质元素序列，通过解包（见本节下文）或索引访问（如果是 [`namedtuples`](https://docs.python.org/zh-cn/3.11/library/collections.html#collections.namedtuple)，可以属性访问）。列表是 [mutable](https://docs.python.org/zh-cn/3.11/glossary.html#term-mutable) （可变的），列表元素一般为同质类型，可迭代访问。
 
 构造 0 个或 1 个元素的元组比较特殊：为了适应这种情况，对句法有一些额外的改变。用一对空圆括号就可以创建空元组；只有一个元素的元组可以通过在这个元素后添加逗号来构建（圆括号里只有一个值的话不够明确）。丑陋，但是有效。例如：
 
@@ -410,7 +410,7 @@ TypeError: 'tuple' object does not support item assignment
 
 Python 还支持 *集合* 这种数据类型。集合是由不重复元素组成的无序容器。基本用法包括成员检测、消除重复元素。集合对象支持合集、交集、差集、对称差分等数学运算。
 
-创建集合用花括号或 [`set()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#set) 函数。注意，创建空集合只能用 `set()`，不能用 `{}`，`{}` 创建的是空字典，下一小节介绍数据结构：字典。
+创建集合用花括号或 [`set()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#set) 函数。注意，创建空集合只能用 `set()`，不能用 `{}`，`{}` 创建的是空字典，下一小节介绍数据结构：字典。
 
 以下是一些简单的示例
 
@@ -441,7 +441,7 @@ False
 {'r', 'd', 'b', 'm', 'z', 'l'}
 ```
 
-与 [列表推导式](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#tut-listcomps) 类似，集合也支持推导式：
+与 [列表推导式](https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html#tut-listcomps) 类似，集合也支持推导式：
 
 \>>>
 
@@ -455,13 +455,13 @@ False
 
 ## 5.5. 字典
 
-*字典* （参见 [映射类型 --- dict](https://docs.python.org/zh-cn/3/library/stdtypes.html#typesmapping)） 也是一种常用的 Python 內置数据类型。其他语言可能把字典称为 *联合内存* 或 *联合数组*。与以连续整数为索引的序列不同，字典以 *关键字* 为索引，关键字通常是字符串或数字，也可以是其他任意不可变类型。只包含字符串、数字、元组的元组，也可以用作关键字。但如果元组直接或间接地包含了可变对象，就不能用作关键字。列表不能当关键字，因为列表可以用索引、切片、`append()` 、`extend()` 等方法修改。
+*字典* （参见 [映射类型 --- dict](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#typesmapping)） 也是一种常用的 Python 內置数据类型。其他语言可能把字典称为 *联合内存* 或 *联合数组*。与以连续整数为索引的序列不同，字典以 *关键字* 为索引，关键字通常是字符串或数字，也可以是其他任意不可变类型。只包含字符串、数字、元组的元组，也可以用作关键字。但如果元组直接或间接地包含了可变对象，就不能用作关键字。列表不能当关键字，因为列表可以用索引、切片、`append()` 、`extend()` 等方法修改。
 
 可以把字典理解为 *键值对* 的集合，但字典的键必须是唯一的。花括号 `{}` 用于创建空字典。另一种初始化字典的方式是，在花括号里输入逗号分隔的键值对，这也是字典的输出方式。
 
 字典的主要用途是通过关键字存储、提取值。用 `del` 可以删除键值对。用已存在的关键字存储值，与该关键字关联的旧值会被取代。通过不存在的键提取值，则会报错。
 
-对字典执行 `list(d)` 操作，返回该字典中所有键的列表，按插入次序排列（如需排序，请使用 `sorted(d)`）。检查字典里是否存在某个键，使用关键字 [`in`](https://docs.python.org/zh-cn/3/reference/expressions.html#in)。
+对字典执行 `list(d)` 操作，返回该字典中所有键的列表，按插入次序排列（如需排序，请使用 `sorted(d)`）。检查字典里是否存在某个键，使用关键字 [`in`](https://docs.python.org/zh-cn/3.11/reference/expressions.html#in)。
 
 以下是一些字典的简单示例：
 
@@ -488,7 +488,7 @@ True
 False
 ```
 
-[`dict()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#dict) 构造函数可以直接用键值对序列创建字典：
+[`dict()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#dict) 构造函数可以直接用键值对序列创建字典：
 
 \>>>
 
@@ -532,7 +532,7 @@ gallahad the pure
 robin the brave
 ```
 
-在序列中循环时，用 [`enumerate()`](https://docs.python.org/zh-cn/3/library/functions.html#enumerate) 函数可以同时取出位置索引和对应的值：
+在序列中循环时，用 [`enumerate()`](https://docs.python.org/zh-cn/3.11/library/functions.html#enumerate) 函数可以同时取出位置索引和对应的值：
 
 \>>>
 
@@ -545,7 +545,7 @@ robin the brave
 2 toe
 ```
 
-同时循环两个或多个序列时，用 [`zip()`](https://docs.python.org/zh-cn/3/library/functions.html#zip) 函数可以将其内的元素一一匹配：
+同时循环两个或多个序列时，用 [`zip()`](https://docs.python.org/zh-cn/3.11/library/functions.html#zip) 函数可以将其内的元素一一匹配：
 
 \>>>
 
@@ -560,7 +560,7 @@ What is your quest?  It is the holy grail.
 What is your favorite color?  It is blue.
 ```
 
-逆向循环序列时，先正向定位序列，然后调用 [`reversed()`](https://docs.python.org/zh-cn/3/library/functions.html#reversed) 函数：
+逆向循环序列时，先正向定位序列，然后调用 [`reversed()`](https://docs.python.org/zh-cn/3.11/library/functions.html#reversed) 函数：
 
 \>>>
 
@@ -575,7 +575,7 @@ What is your favorite color?  It is blue.
 1
 ```
 
-按指定顺序循环序列，可以用 [`sorted()`](https://docs.python.org/zh-cn/3/library/functions.html#sorted) 函数，在不改动原序列的基础上，返回一个重新的序列：
+按指定顺序循环序列，可以用 [`sorted()`](https://docs.python.org/zh-cn/3.11/library/functions.html#sorted) 函数，在不改动原序列的基础上，返回一个重新的序列：
 
 \>>>
 
@@ -592,7 +592,7 @@ orange
 pear
 ```
 
-使用 [`set()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#set) 去除序列中的重复元素。使用 [`sorted()`](https://docs.python.org/zh-cn/3/library/functions.html#sorted) 加 [`set()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#set) 则按排序后的顺序，循环遍历序列中的唯一元素：
+使用 [`set()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#set) 去除序列中的重复元素。使用 [`sorted()`](https://docs.python.org/zh-cn/3.11/library/functions.html#sorted) 加 [`set()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#set) 则按排序后的顺序，循环遍历序列中的唯一元素：
 
 \>>>
 
@@ -648,7 +648,7 @@ pear
 'Trondheim'
 ```
 
-注意，Python 与 C 不同，在表达式内部赋值必须显式使用 [海象运算符](https://docs.python.org/zh-cn/3/faq/design.html#why-can-t-i-use-an-assignment-in-an-expression) `:=`。 这避免了 C 程序中常见的问题：要在表达式中写 `==` 时，却写成了 `=`。
+注意，Python 与 C 不同，在表达式内部赋值必须显式使用 [海象运算符](https://docs.python.org/zh-cn/3.11/faq/design.html#why-can-t-i-use-an-assignment-in-an-expression) `:=`。 这避免了 C 程序中常见的问题：要在表达式中写 `==` 时，却写成了 `=`。
 
 
 
@@ -666,10 +666,10 @@ pear
 (1, 2, ('aa', 'ab'))   < (1, 2, ('abc', 'a'), 4)
 ```
 
-注意，对不同类型的对象来说，只要待比较的对象提供了合适的比较方法，就可以使用 `<` 和 `>` 进行比较。例如，混合数值类型通过数值进行比较，所以，0 等于 0.0，等等。否则，解释器不会随便给出一个对比结果，而是触发 [`TypeError`](https://docs.python.org/zh-cn/3/library/exceptions.html#TypeError) 异常。
+注意，对不同类型的对象来说，只要待比较的对象提供了合适的比较方法，就可以使用 `<` 和 `>` 进行比较。例如，混合数值类型通过数值进行比较，所以，0 等于 0.0，等等。否则，解释器不会随便给出一个对比结果，而是触发 [`TypeError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#TypeError) 异常。
 
 备注
 
-- [1](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#id1)
+- [1](https://docs.python.org/zh-cn/3.11/tutorial/datastructures.html#id1)
 
   别的语言可能会返回可变对象，允许方法连续执行，例如，`d->insert("a")->remove("b")->sort();`。

@@ -10,7 +10,7 @@ draft = false
 
 # 6. 模块
 
-https://docs.python.org/zh-cn/3/tutorial/modules.html
+https://docs.python.org/zh-cn/3.11/tutorial/modules.html
 
 退出 Python 解释器后，再次进入时，之前在 Python 解释器中定义的函数和变量就丢失了。因此，编写较长程序时，建议用文本编辑器代替解释器，执行文件中的输入内容，这就是编写 *脚本* 。随着程序越来越长，为了方便维护，最好把脚本拆分成多个文件。编写脚本还一个好处，不同程序调用同一个函数时，不用每次把函数复制到各个程序。
 
@@ -45,7 +45,7 @@ def fib2(n):   # return Fibonacci series up to n
 >>> import fibo
 ```
 
-This does not add the names of the functions defined in `fibo` directly to the current [namespace](https://docs.python.org/zh-cn/3/glossary.html#term-namespace) (see [Python 作用域和命名空间](https://docs.python.org/zh-cn/3/tutorial/classes.html#tut-scopes) for more details); it only adds the module name `fibo` there. Using the module name you can access the functions:
+This does not add the names of the functions defined in `fibo` directly to the current [namespace](https://docs.python.org/zh-cn/3.11/glossary.html#term-namespace) (see [Python 作用域和命名空间](https://docs.python.org/zh-cn/3.11/tutorial/classes.html#tut-scopes) for more details); it only adds the module name `fibo` there. Using the module name you can access the functions:
 
 \>>>
 
@@ -72,13 +72,13 @@ This does not add the names of the functions defined in `fibo` directly to the c
 
 ## 6.1. 模块详解
 
-模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 import 语句 *第一次* 遇到模块名时执行。[1](https://docs.python.org/zh-cn/3/tutorial/modules.html#id3) (文件作为脚本运行时，也会执行这些语句。)
+模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 import 语句 *第一次* 遇到模块名时执行。[1](https://docs.python.org/zh-cn/3.11/tutorial/modules.html#id3) (文件作为脚本运行时，也会执行这些语句。)
 
 Each module has its own private namespace, which is used as the global namespace by all functions defined in the module. Thus, the author of a module can use global variables in the module without worrying about accidental clashes with a user's global variables. On the other hand, if you know what you are doing you can touch a module's global variables with the same notation used to refer to its functions, `modname.itemname`.
 
-Modules can import other modules. It is customary but not required to place all [`import`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#import) statements at the beginning of a module (or script, for that matter). The imported module names, if placed at the top level of a module (outside any functions or classes), are added to the module's global namespace.
+Modules can import other modules. It is customary but not required to place all [`import`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#import) statements at the beginning of a module (or script, for that matter). The imported module names, if placed at the top level of a module (outside any functions or classes), are added to the module's global namespace.
 
-There is a variant of the [`import`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#import) statement that imports names from a module directly into the importing module's namespace. For example:
+There is a variant of the [`import`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#import) statement that imports names from a module directly into the importing module's namespace. For example:
 
 \>>>
 
@@ -116,7 +116,7 @@ This does not introduce the module name from which the imports are taken in the 
 
 与 `import fibo` 一样，这种方式也可以有效地导入模块，唯一的区别是，导入的名称是 `fib`。
 
-[`from`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#from) 中也可以使用这种方式，效果类似：
+[`from`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#from) 中也可以使用这种方式，效果类似：
 
 \>>>
 
@@ -130,7 +130,7 @@ This does not introduce the module name from which the imports are taken in the 
 
  
 
-为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 [`importlib.reload()`](https://docs.python.org/zh-cn/3/library/importlib.html#importlib.reload)，例如 `import importlib; importlib.reload(modulename)`。
+为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 [`importlib.reload()`](https://docs.python.org/zh-cn/3.11/library/importlib.html#importlib.reload)，例如 `import importlib; importlib.reload(modulename)`。
 
 
 
@@ -172,13 +172,13 @@ $ python fibo.py 50
 
 ### 6.1.2. 模块搜索路径
 
-当一个名为 `spam` 的模块被导入时，解释器首先搜索具有该名称的内置模块。这些模块的名字被列在 [`sys.builtin_module_names`](https://docs.python.org/zh-cn/3/library/sys.html#sys.builtin_module_names) 中。如果没有找到，它就在变量 [`sys.path`](https://docs.python.org/zh-cn/3/library/sys.html#sys.path) 给出的目录列表中搜索一个名为 `spam.py` 的文件， [`sys.path`](https://docs.python.org/zh-cn/3/library/sys.html#sys.path) 从这些位置初始化:
+当一个名为 `spam` 的模块被导入时，解释器首先搜索具有该名称的内置模块。这些模块的名字被列在 [`sys.builtin_module_names`](https://docs.python.org/zh-cn/3.11/library/sys.html#sys.builtin_module_names) 中。如果没有找到，它就在变量 [`sys.path`](https://docs.python.org/zh-cn/3.11/library/sys.html#sys.path) 给出的目录列表中搜索一个名为 `spam.py` 的文件， [`sys.path`](https://docs.python.org/zh-cn/3.11/library/sys.html#sys.path) 从这些位置初始化:
 
 - 输入脚本的目录（或未指定文件时的当前目录）。
-- [`PYTHONPATH`](https://docs.python.org/zh-cn/3/using/cmdline.html#envvar-PYTHONPATH) （目录列表，与 shell 变量 `PATH` 的语法一样）。
-- 依赖于安装的默认值（按照惯例包括一个 `site-packages` 目录，由 [`site`](https://docs.python.org/zh-cn/3/library/site.html#module-site) 模块处理）。
+- [`PYTHONPATH`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#envvar-PYTHONPATH) （目录列表，与 shell 变量 `PATH` 的语法一样）。
+- 依赖于安装的默认值（按照惯例包括一个 `site-packages` 目录，由 [`site`](https://docs.python.org/zh-cn/3.11/library/site.html#module-site) 模块处理）。
 
-More details are at [The initialization of the sys.path module search path](https://docs.python.org/zh-cn/3/library/sys_path_init.html#sys-path-init).
+More details are at [The initialization of the sys.path module search path](https://docs.python.org/zh-cn/3.11/library/sys_path_init.html#sys-path-init).
 
 备注
 
@@ -186,7 +186,7 @@ More details are at [The initialization of the sys.path module search path](http
 
 在支持 symlink 的文件系统中，输入脚本目录是在追加 symlink 后计算出来的。换句话说，包含 symlink 的目录并 **没有** 添加至模块搜索路径。
 
-初始化后，Python 程序可以更改 [`sys.path`](https://docs.python.org/zh-cn/3/library/sys.html#sys.path)。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。详见 [标准模块](https://docs.python.org/zh-cn/3/tutorial/modules.html#tut-standardmodules)。
+初始化后，Python 程序可以更改 [`sys.path`](https://docs.python.org/zh-cn/3.11/library/sys.html#sys.path)。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。详见 [标准模块](https://docs.python.org/zh-cn/3.11/tutorial/modules.html#tut-standardmodules)。
 
 
 
@@ -200,16 +200,16 @@ Python 在两种情况下不检查缓存。其一，从命令行直接载入模�
 
 给专业人士的一些小建议：
 
-- 在 Python 命令中使用 [`-O`](https://docs.python.org/zh-cn/3/using/cmdline.html#cmdoption-O) 或 [`-OO`](https://docs.python.org/zh-cn/3/using/cmdline.html#cmdoption-OO) 开关，可以减小编译模块的大小。`-O` 去除断言语句，`-OO` 去除断言语句和 __doc__ 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的”模块带有 `opt-` 标签，并且文件通常会一小些。将来的发行版或许会改进优化的效果。
+- 在 Python 命令中使用 [`-O`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#cmdoption-O) 或 [`-OO`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#cmdoption-OO) 开关，可以减小编译模块的大小。`-O` 去除断言语句，`-OO` 去除断言语句和 __doc__ 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的”模块带有 `opt-` 标签，并且文件通常会一小些。将来的发行版或许会改进优化的效果。
 - 从 `.pyc` 文件读取的程序不比从 `.py` 读取的执行速度快，`.pyc` 文件只是加载速度更快。
-- [`compileall`](https://docs.python.org/zh-cn/3/library/compileall.html#module-compileall) 模块可以为一个目录下的所有模块创建 .pyc 文件。
+- [`compileall`](https://docs.python.org/zh-cn/3.11/library/compileall.html#module-compileall) 模块可以为一个目录下的所有模块创建 .pyc 文件。
 - 本过程的细节及决策流程图，详见 [**PEP 3147**](https://peps.python.org/pep-3147/)。
 
 
 
 ## 6.2. 标准模块
 
-Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为"库参考" ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，[`winreg`](https://docs.python.org/zh-cn/3/library/winreg.html#module-winreg) 模块只在 Windows 系统上提供。一个特别值得注意的模块 [`sys`](https://docs.python.org/zh-cn/3/library/sys.html#module-sys)，它被内嵌到每一个 Python 编译器中。`sys.ps1` 和 `sys.ps2` 变量定义了一些字符，它们可以用作主提示符和辅助提示符:
+Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为"库参考" ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，[`winreg`](https://docs.python.org/zh-cn/3.11/library/winreg.html#module-winreg) 模块只在 Windows 系统上提供。一个特别值得注意的模块 [`sys`](https://docs.python.org/zh-cn/3.11/library/sys.html#module-sys)，它被内嵌到每一个 Python 编译器中。`sys.ps1` 和 `sys.ps2` 变量定义了一些字符，它们可以用作主提示符和辅助提示符:
 
 \>>>
 
@@ -227,7 +227,7 @@ C>
 
 只有解释器用于交互模式时，才定义这两个变量。
 
-变量 `sys.path` 是字符串列表，用于确定解释器的模块搜索路径。该变量以环境变量 [`PYTHONPATH`](https://docs.python.org/zh-cn/3/using/cmdline.html#envvar-PYTHONPATH) 提取的默认路径进行初始化，如未设置 [`PYTHONPATH`](https://docs.python.org/zh-cn/3/using/cmdline.html#envvar-PYTHONPATH)，则使用内置的默认路径。可以用标准列表操作修改该变量：
+变量 `sys.path` 是字符串列表，用于确定解释器的模块搜索路径。该变量以环境变量 [`PYTHONPATH`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#envvar-PYTHONPATH) 提取的默认路径进行初始化，如未设置 [`PYTHONPATH`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#envvar-PYTHONPATH)，则使用内置的默认路径。可以用标准列表操作修改该变量：
 
 \>>>
 
@@ -238,9 +238,9 @@ C>
 
 
 
-## 6.3. [`dir()`](https://docs.python.org/zh-cn/3/library/functions.html#dir) 函数
+## 6.3. [`dir()`](https://docs.python.org/zh-cn/3.11/library/functions.html#dir) 函数
 
-内置函数 [`dir()`](https://docs.python.org/zh-cn/3/library/functions.html#dir) 用于查找模块定义的名称。返回结果是经过排序的字符串列表：
+内置函数 [`dir()`](https://docs.python.org/zh-cn/3.11/library/functions.html#dir) 用于查找模块定义的名称。返回结果是经过排序的字符串列表：
 
 \>>>
 
@@ -272,7 +272,7 @@ C>
  'warnoptions']
 ```
 
-没有参数时，[`dir()`](https://docs.python.org/zh-cn/3/library/functions.html#dir) 列出当前定义的名称：
+没有参数时，[`dir()`](https://docs.python.org/zh-cn/3.11/library/functions.html#dir) 列出当前定义的名称：
 
 \>>>
 
@@ -286,7 +286,7 @@ C>
 
 注意，该函数列出所有类型的名称：变量、模块、函数等。
 
-[`dir()`](https://docs.python.org/zh-cn/3/library/functions.html#dir) 不会列出内置函数和变量的名称。这些内容的定义在标准模块 [`builtins`](https://docs.python.org/zh-cn/3/library/builtins.html#module-builtins) 里：
+[`dir()`](https://docs.python.org/zh-cn/3.11/library/functions.html#dir) 不会列出内置函数和变量的名称。这些内容的定义在标准模块 [`builtins`](https://docs.python.org/zh-cn/3.11/library/builtins.html#module-builtins) 里：
 
 \>>>
 
@@ -398,7 +398,7 @@ from sound.effects.echo import echofilter
 echofilter(input, output, delay=0.7, atten=4)
 ```
 
-注意，使用 `from package import item` 时，item 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。`import` 语句首先测试包中是否定义了 item；如果未在包中定义，则假定 item 是模块，并尝试加载。如果找不到 item，则触发 [`ImportError`](https://docs.python.org/zh-cn/3/library/exceptions.html#ImportError) 异常。
+注意，使用 `from package import item` 时，item 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。`import` 语句首先测试包中是否定义了 item；如果未在包中定义，则假定 item 是模块，并尝试加载。如果找不到 item，则触发 [`ImportError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#ImportError) 异常。
 
 相反，使用 `import item.subitem.subsubitem` 句法时，除最后一项外，每个 item 都必须是包；最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。
 
@@ -408,7 +408,7 @@ echofilter(input, output, delay=0.7, atten=4)
 
 使用 `from sound.effects import *` 时会发生什么？理想情况下，该语句在文件系统查找并导入包的所有子模块。这项操作花费的时间较长，并且导入子模块可能会产生不必要的副作用，这种副作用只有在显式导入子模块时才会发生。
 
-唯一的解决方案是提供包的显式索引。[`import`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#import) 语句使用如下惯例：如果包的 `__init__.py` 代码定义了列表 `__all__`，运行 `from package import *` 时，它就是用于导入的模块名列表。发布包的新版本时，包的作者应更新此列表。如果包的作者认为没有必要在包中执行导入 * 操作，也可以不提供此列表。例如，`sound/effects/__init__.py` 文件包含以下代码：
+唯一的解决方案是提供包的显式索引。[`import`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#import) 语句使用如下惯例：如果包的 `__init__.py` 代码定义了列表 `__all__`，运行 `from package import *` 时，它就是用于导入的模块名列表。发布包的新版本时，包的作者应更新此列表。如果包的作者认为没有必要在包中执行导入 * 操作，也可以不提供此列表。例如，`sound/effects/__init__.py` 文件包含以下代码：
 
 ```
 __all__ = ["echo", "surround", "reverse"]
@@ -416,7 +416,7 @@ __all__ = ["echo", "surround", "reverse"]
 
 这将意味着将 `from sound.effects import *` 导入 `sound.effects` 包的三个命名的子模块。
 
-如果没有定义 `__all__`，`from sound.effects import *` 语句 *不会* 把包 `sound.effects` 中所有子模块都导入到当前命名空间；该语句只确保导入包 `sound.effects` （可能还会运行 `__init__.py` 中的初始化代码），然后，再导入包中定义的名称。这些名称包括 `__init__.py` 中定义的任何名称（以及显式加载的子模块），还包括之前 [`import`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#import) 语句显式加载的包里的子模块。请看以下代码：
+如果没有定义 `__all__`，`from sound.effects import *` 语句 *不会* 把包 `sound.effects` 中所有子模块都导入到当前命名空间；该语句只确保导入包 `sound.effects` （可能还会运行 `__init__.py` 中的初始化代码），然后，再导入包中定义的名称。这些名称包括 `__init__.py` 中定义的任何名称（以及显式加载的子模块），还包括之前 [`import`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#import) 语句显式加载的包里的子模块。请看以下代码：
 
 ```
 import sound.effects.echo
@@ -448,12 +448,12 @@ from ..filters import equalizer
 
 ### 6.4.3. 多目录中的包
 
-包支持一个更特殊的属性 [`__path__`](https://docs.python.org/zh-cn/3/reference/import.html#path__) 。在包的 :[file:__init__.py](file://__init__.py/) 文件中的代码被执行前，该属性被初始化为包含 :[file:__init__.py](file://__init__.py/) 文件所在的目录名在内的列表。可以修改此变量；但这样做会影响在此包中搜索子模块和子包。
+包支持一个更特殊的属性 [`__path__`](https://docs.python.org/zh-cn/3.11/reference/import.html#path__) 。在包的 :[file:__init__.py](file://__init__.py/) 文件中的代码被执行前，该属性被初始化为包含 :[file:__init__.py](file://__init__.py/) 文件所在的目录名在内的列表。可以修改此变量；但这样做会影响在此包中搜索子模块和子包。
 
 这个功能虽然不常用，但可用于扩展包中的模块集。
 
 备注
 
-- [1](https://docs.python.org/zh-cn/3/tutorial/modules.html#id1)
+- [1](https://docs.python.org/zh-cn/3.11/tutorial/modules.html#id1)
 
   In fact function definitions are also 'statements' that are 'executed'; the execution of a module-level function definition adds the function name to the module's global namespace.

@@ -10,7 +10,7 @@ draft = false
 
 # 8. 错误和异常
 
-https://docs.python.org/zh-cn/3/tutorial/errors.html
+https://docs.python.org/zh-cn/3.11/tutorial/errors.html
 
 至此，本教程还未深入介绍错误信息，但如果您输入过本教程前文中的例子，应该已经看到过一些错误信息。目前，（至少）有两种不同错误：*句法错误* 和 *异常*。
 
@@ -30,7 +30,7 @@ https://docs.python.org/zh-cn/3/tutorial/errors.html
 SyntaxError: invalid syntax
 ```
 
-解析器会复现出现句法错误的代码行，并用小“箭头”指向行里检测到的第一个错误。错误是由箭头 *上方* 的 token 触发的（至少是在这里检测出的）：本例中，在 [`print()`](https://docs.python.org/zh-cn/3/library/functions.html#print) 函数中检测到错误，因为，在它前面缺少冒号（`':'`） 。错误信息还输出文件名与行号，在使用脚本文件时，就可以知道去哪里查错。
+解析器会复现出现句法错误的代码行，并用小“箭头”指向行里检测到的第一个错误。错误是由箭头 *上方* 的 token 触发的（至少是在这里检测出的）：本例中，在 [`print()`](https://docs.python.org/zh-cn/3.11/library/functions.html#print) 函数中检测到错误，因为，在它前面缺少冒号（`':'`） 。错误信息还输出文件名与行号，在使用脚本文件时，就可以知道去哪里查错。
 
 
 
@@ -55,19 +55,19 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-错误信息的最后一行说明程序遇到了什么类型的错误。异常有不同的类型，而类型名称会作为错误信息的一部分中打印出来：上述示例中的异常类型依次是：[`ZeroDivisionError`](https://docs.python.org/zh-cn/3/library/exceptions.html#ZeroDivisionError)， [`NameError`](https://docs.python.org/zh-cn/3/library/exceptions.html#NameError) 和 [`TypeError`](https://docs.python.org/zh-cn/3/library/exceptions.html#TypeError)。作为异常类型打印的字符串是发生的内置异常的名称。对于所有内置异常都是如此，但对于用户定义的异常则不一定如此（虽然这种规范很有用）。标准的异常类型是内置的标识符（不是保留关键字）。
+错误信息的最后一行说明程序遇到了什么类型的错误。异常有不同的类型，而类型名称会作为错误信息的一部分中打印出来：上述示例中的异常类型依次是：[`ZeroDivisionError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#ZeroDivisionError)， [`NameError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#NameError) 和 [`TypeError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#TypeError)。作为异常类型打印的字符串是发生的内置异常的名称。对于所有内置异常都是如此，但对于用户定义的异常则不一定如此（虽然这种规范很有用）。标准的异常类型是内置的标识符（不是保留关键字）。
 
 此行其余部分根据异常类型，结合出错原因，说明错误细节。
 
 错误信息开头用堆栈回溯形式展示发生异常的语境。一般会列出源代码行的堆栈回溯；但不会显示从标准输入读取的行。
 
-[内置异常](https://docs.python.org/zh-cn/3/library/exceptions.html#bltin-exceptions) 列出了内置异常及其含义。
+[内置异常](https://docs.python.org/zh-cn/3.11/library/exceptions.html#bltin-exceptions) 列出了内置异常及其含义。
 
 
 
 ## 8.3. 异常的处理
 
-可以编写程序处理选定的异常。下例会要求用户一直输入内容，直到输入有效的整数，但允许用户中断程序（使用 Control-C 或操作系统支持的其他操作）；注意，用户中断程序会触发 [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3/library/exceptions.html#KeyboardInterrupt) 异常。
+可以编写程序处理选定的异常。下例会要求用户一直输入内容，直到输入有效的整数，但允许用户中断程序（使用 Control-C 或操作系统支持的其他操作）；注意，用户中断程序会触发 [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#KeyboardInterrupt) 异常。
 
 \>>>
 
@@ -81,21 +81,21 @@ TypeError: can only concatenate str (not "int") to str
 ...
 ```
 
-[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句的工作原理如下：
+[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句的工作原理如下：
 
-- 首先，执行 *try 子句* （[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 和 [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 关键字之间的（多行）语句）。
-- 如果没有触发异常，则跳过 *except 子句*，[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句执行完毕。
-- 如果在执行 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 子句时发生了异常，则跳过该子句中剩下的部分。 如果异常的类型与 [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 关键字后指定的异常相匹配，则会执行 *except 子句*，然后跳到 try/except 代码块之后继续执行。
-- 如果发生的异常与 *except 子句* 中指定的异常不匹配，则它会被传递到外部的 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句中；如果没有找到处理程序，则它是一个 *未处理异常* 且执行将终止并输出如上所示的消息。
+- 首先，执行 *try 子句* （[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 和 [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 关键字之间的（多行）语句）。
+- 如果没有触发异常，则跳过 *except 子句*，[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句执行完毕。
+- 如果在执行 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 子句时发生了异常，则跳过该子句中剩下的部分。 如果异常的类型与 [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 关键字后指定的异常相匹配，则会执行 *except 子句*，然后跳到 try/except 代码块之后继续执行。
+- 如果发生的异常与 *except 子句* 中指定的异常不匹配，则它会被传递到外部的 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句中；如果没有找到处理程序，则它是一个 *未处理异常* 且执行将终止并输出如上所示的消息。
 
-[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句可以有多个 *except 子句* 来为不同的异常指定处理程序。 但最多只有一个处理程序会被执行。 处理程序只处理对应的 *try 子句* 中发生的异常，而不处理同一 `try` 语句内其他处理程序中的异常。 *except 子句* 可以用带圆括号的元组来指定多个异常，例如:
+[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句可以有多个 *except 子句* 来为不同的异常指定处理程序。 但最多只有一个处理程序会被执行。 处理程序只处理对应的 *try 子句* 中发生的异常，而不处理同一 `try` 语句内其他处理程序中的异常。 *except 子句* 可以用带圆括号的元组来指定多个异常，例如:
 
 ```
 ... except (RuntimeError, TypeError, NameError):
 ...     pass
 ```
 
-如果发生的异常与 [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 子句中的类是同一个类或是它的基类时，则该类与该异常相兼容（反之则不成立 --- 列出派生类的 *except 子句* 与基类不兼容）。 例如，下面的代码将依次打印 B, C, D:
+如果发生的异常与 [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 子句中的类是同一个类或是它的基类时，则该类与该异常相兼容（反之则不成立 --- 列出派生类的 *except 子句* 与基类不兼容）。 例如，下面的代码将依次打印 B, C, D:
 
 ```
 class B(Exception):
@@ -147,11 +147,11 @@ y = eggs
 
 The exception's `__str__()` output is printed as the last part ('detail') of the message for unhandled exceptions.
 
-[`BaseException`](https://docs.python.org/zh-cn/3/library/exceptions.html#BaseException) is the common base class of all exceptions. One of its subclasses, [`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception), is the base class of all the non-fatal exceptions. Exceptions which are not subclasses of [`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception) are not typically handled, because they are used to indicate that the program should terminate. They include [`SystemExit`](https://docs.python.org/zh-cn/3/library/exceptions.html#SystemExit) which is raised by [`sys.exit()`](https://docs.python.org/zh-cn/3/library/sys.html#sys.exit) and [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3/library/exceptions.html#KeyboardInterrupt) which is raised when a user wishes to interrupt the program.
+[`BaseException`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#BaseException) is the common base class of all exceptions. One of its subclasses, [`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception), is the base class of all the non-fatal exceptions. Exceptions which are not subclasses of [`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception) are not typically handled, because they are used to indicate that the program should terminate. They include [`SystemExit`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#SystemExit) which is raised by [`sys.exit()`](https://docs.python.org/zh-cn/3.11/library/sys.html#sys.exit) and [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#KeyboardInterrupt) which is raised when a user wishes to interrupt the program.
 
-[`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception) can be used as a wildcard that catches (almost) everything. However, it is good practice to be as specific as possible with the types of exceptions that we intend to handle, and to allow any unexpected exceptions to propagate on.
+[`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception) can be used as a wildcard that catches (almost) everything. However, it is good practice to be as specific as possible with the types of exceptions that we intend to handle, and to allow any unexpected exceptions to propagate on.
 
-The most common pattern for handling [`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception) is to print or log the exception and then re-raise it (allowing a caller to handle the exception as well):
+The most common pattern for handling [`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception) is to print or log the exception and then re-raise it (allowing a caller to handle the exception as well):
 
 ```
 import sys
@@ -169,7 +169,7 @@ except Exception as err:
     raise
 ```
 
-[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) ... [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 语句具有可选的 *else 子句*，该子句如果存在，它必须放在所有 *except 子句* 之后。 它适用于 *try 子句* 没有引发异常但又必须要执行的代码。 例如:
+[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) ... [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 语句具有可选的 *else 子句*，该子句如果存在，它必须放在所有 *except 子句* 之后。 它适用于 *try 子句* 没有引发异常但又必须要执行的代码。 例如:
 
 ```
 for arg in sys.argv[1:]:
@@ -182,7 +182,7 @@ for arg in sys.argv[1:]:
         f.close()
 ```
 
-使用 `else` 子句比向 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 子句添加额外的代码要好，可以避免意外捕获非 `try` ... `except` 语句保护的代码触发的异常。
+使用 `else` 子句比向 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 子句添加额外的代码要好，可以避免意外捕获非 `try` ... `except` 语句保护的代码触发的异常。
 
 Exception handlers do not handle only exceptions that occur immediately in the *try clause*, but also those that occur inside functions that are called (even indirectly) in the *try clause*. For example:
 
@@ -204,7 +204,7 @@ Handling run-time error: division by zero
 
 ## 8.4. 触发异常
 
-[`raise`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise) 语句支持强制触发指定的异常。例如：
+[`raise`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#raise) 语句支持强制触发指定的异常。例如：
 
 \>>>
 
@@ -215,13 +215,13 @@ Traceback (most recent call last):
 NameError: HiThere
 ```
 
-The sole argument to [`raise`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise) indicates the exception to be raised. This must be either an exception instance or an exception class (a class that derives from [`BaseException`](https://docs.python.org/zh-cn/3/library/exceptions.html#BaseException), such as [`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception) or one of its subclasses). If an exception class is passed, it will be implicitly instantiated by calling its constructor with no arguments:
+The sole argument to [`raise`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#raise) indicates the exception to be raised. This must be either an exception instance or an exception class (a class that derives from [`BaseException`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#BaseException), such as [`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception) or one of its subclasses). If an exception class is passed, it will be implicitly instantiated by calling its constructor with no arguments:
 
 ```
 raise ValueError  # shorthand for 'raise ValueError()'
 ```
 
-如果只想判断是否触发了异常，但并不打算处理该异常，则可以使用更简单的 [`raise`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise) 语句重新触发异常：
+如果只想判断是否触发了异常，但并不打算处理该异常，则可以使用更简单的 [`raise`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#raise) 语句重新触发异常：
 
 \>>>
 
@@ -242,7 +242,7 @@ NameError: HiThere
 
 ## 8.5. 异常链
 
-If an unhandled exception occurs inside an [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) section, it will have the exception being handled attached to it and included in the error message:
+If an unhandled exception occurs inside an [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) section, it will have the exception being handled attached to it and included in the error message:
 
 \>>>
 
@@ -263,7 +263,7 @@ Traceback (most recent call last):
 RuntimeError: unable to handle error
 ```
 
-To indicate that an exception is a direct consequence of another, the [`raise`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise) statement allows an optional [`from`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise) clause:
+To indicate that an exception is a direct consequence of another, the [`raise`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#raise) statement allows an optional [`from`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#raise) clause:
 
 ```
 # exc must be exception instance or None.
@@ -310,13 +310,13 @@ Traceback (most recent call last):
 RuntimeError
 ```
 
-异常链机制详见 [内置异常](https://docs.python.org/zh-cn/3/library/exceptions.html#bltin-exceptions)。
+异常链机制详见 [内置异常](https://docs.python.org/zh-cn/3.11/library/exceptions.html#bltin-exceptions)。
 
 
 
 ## 8.6. 用户自定义异常
 
-程序可以通过创建新的异常类命名自己的异常（Python 类的内容详见 [类](https://docs.python.org/zh-cn/3/tutorial/classes.html#tut-classes)）。不论是以直接还是间接的方式，异常都应从 [`Exception`](https://docs.python.org/zh-cn/3/library/exceptions.html#Exception) 类派生。
+程序可以通过创建新的异常类命名自己的异常（Python 类的内容详见 [类](https://docs.python.org/zh-cn/3.11/tutorial/classes.html#tut-classes)）。不论是以直接还是间接的方式，异常都应从 [`Exception`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#Exception) 类派生。
 
 异常类可以被定义成能做其他类所能做的任何事，但通常应当保持简单，它往往只提供一些属性，允许相应的异常处理程序提取有关错误的信息。
 
@@ -328,7 +328,7 @@ Many standard modules define their own exceptions to report errors that may occu
 
 ## 8.7. 定义清理操作
 
-[`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句还有一个可选子句，用于定义在所有情况下都必须要执行的清理操作。例如：
+[`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句还有一个可选子句，用于定义在所有情况下都必须要执行的清理操作。例如：
 
 \>>>
 
@@ -344,12 +344,12 @@ Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
 ```
 
-如果存在 [`finally`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#finally) 子句，则 `finally` 子句是 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句结束前执行的最后一项任务。不论 `try` 语句是否触发异常，都会执行 `finally` 子句。以下内容介绍了几种比较复杂的触发异常情景：
+如果存在 [`finally`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#finally) 子句，则 `finally` 子句是 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句结束前执行的最后一项任务。不论 `try` 语句是否触发异常，都会执行 `finally` 子句。以下内容介绍了几种比较复杂的触发异常情景：
 
-- 如果执行 `try` 子句期间触发了某个异常，则某个 [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 子句应处理该异常。如果该异常没有 `except` 子句处理，在 `finally` 子句执行后会被重新触发。
+- 如果执行 `try` 子句期间触发了某个异常，则某个 [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 子句应处理该异常。如果该异常没有 `except` 子句处理，在 `finally` 子句执行后会被重新触发。
 - `except` 或 `else` 子句执行期间也会触发异常。 同样，该异常会在 `finally` 子句执行之后被重新触发。
-- 如果 `finally` 子句中包含 [`break`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#break)、[`continue`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#continue) 或 [`return`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#return) 等语句，异常将不会被重新引发。
-- 如果执行 `try` 语句时遇到 [`break`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#break),、[`continue`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#continue) 或 [`return`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#return) 语句，则 `finally` 子句在执行 `break`、`continue` 或 `return` 语句之前执行。
+- 如果 `finally` 子句中包含 [`break`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#break)、[`continue`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#continue) 或 [`return`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#return) 等语句，异常将不会被重新引发。
+- 如果执行 `try` 语句时遇到 [`break`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#break),、[`continue`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#continue) 或 [`return`](https://docs.python.org/zh-cn/3.11/reference/simple_stmts.html#return) 语句，则 `finally` 子句在执行 `break`、`continue` 或 `return` 语句之前执行。
 - 如果 `finally` 子句中包含 `return` 语句，则返回值来自 `finally` 子句的某个 `return` 语句的返回值，而不是来自 `try` 子句的 `return` 语句的返回值。
 
 例如：
@@ -396,9 +396,9 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'str'
 ```
 
-如上所示，任何情况下都会执行 [`finally`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#finally) 子句。[`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 子句不处理两个字符串相除触发的 [`TypeError`](https://docs.python.org/zh-cn/3/library/exceptions.html#TypeError)，因此会在 `finally` 子句执行后被重新触发。
+如上所示，任何情况下都会执行 [`finally`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#finally) 子句。[`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 子句不处理两个字符串相除触发的 [`TypeError`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#TypeError)，因此会在 `finally` 子句执行后被重新触发。
 
-在实际应用程序中，[`finally`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#finally) 子句对于释放外部资源（例如文件或者网络连接）非常有用，无论是否成功使用资源。
+在实际应用程序中，[`finally`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#finally) 子句对于释放外部资源（例如文件或者网络连接）非常有用，无论是否成功使用资源。
 
 
 
@@ -411,7 +411,7 @@ for line in open("myfile.txt"):
     print(line, end="")
 ```
 
-这个代码的问题在于，执行完代码后，文件在一段不确定的时间内处于打开状态。在简单脚本中这没有问题，但对于较大的应用程序来说可能会出问题。[`with`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#with) 语句支持以及时、正确的清理的方式使用文件对象：
+这个代码的问题在于，执行完代码后，文件在一段不确定的时间内处于打开状态。在简单脚本中这没有问题，但对于较大的应用程序来说可能会出问题。[`with`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#with) 语句支持以及时、正确的清理的方式使用文件对象：
 
 ```
 with open("myfile.txt") as f:
@@ -427,7 +427,7 @@ with open("myfile.txt") as f:
 
 There are situations where it is necessary to report several exceptions that have occurred. This is often the case in concurrency frameworks, when several tasks may have failed in parallel, but there are also other use cases where it is desirable to continue execution and collect multiple errors rather than raise the first exception.
 
-The builtin [`ExceptionGroup`](https://docs.python.org/zh-cn/3/library/exceptions.html#ExceptionGroup) wraps a list of exception instances so that they can be raised together. It is an exception itself, so it can be caught like any other exception.
+The builtin [`ExceptionGroup`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#ExceptionGroup) wraps a list of exception instances so that they can be raised together. It is an exception itself, so it can be caught like any other exception.
 
 \>>>
 

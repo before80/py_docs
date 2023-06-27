@@ -10,7 +10,7 @@ draft = false
 
 # 12. 虚拟环境和包
 
-https://docs.python.org/zh-cn/3/tutorial/venv.html
+https://docs.python.org/zh-cn/3.11/tutorial/venv.html
 
 ## 12.1. 概述
 
@@ -18,15 +18,15 @@ Python应用程序通常会使用不在标准库内的软件包和模块。应�
 
 这意味着一个Python安装可能无法满足每个应用程序的要求。如果应用程序A需要特定模块的1.0版本但应用程序B需要2.0版本，则需求存在冲突，安装版本1.0或2.0将导致某一个应用程序无法运行。
 
-这个问题的解决方案是创建一个 [virtual environment](https://docs.python.org/zh-cn/3/glossary.html#term-virtual-environment)，一个目录树，其中安装有特定Python版本，以及许多其他包。
+这个问题的解决方案是创建一个 [virtual environment](https://docs.python.org/zh-cn/3.11/glossary.html#term-virtual-environment)，一个目录树，其中安装有特定Python版本，以及许多其他包。
 
 然后，不同的应用将可以使用不同的虚拟环境。 要解决先前需求相冲突的例子，应用程序 A 可以拥有自己的 安装了 1.0 版本的虚拟环境，而应用程序 B 则拥有安装了 2.0 版本的另一个虚拟环境。 如果应用程序 B 要求将某个库升级到 3.0 版本，也不会影响应用程序 A 的环境。
 
 ## 12.2. 创建虚拟环境
 
-用于创建和管理虚拟环境的模块称为 [`venv`](https://docs.python.org/zh-cn/3/library/venv.html#module-venv)。[`venv`](https://docs.python.org/zh-cn/3/library/venv.html#module-venv) 通常会安装你可用的最新版本的 Python。如果您的系统上有多个版本的 Python，您可以通过运行 `python3` 或您想要的任何版本来选择特定的Python版本。
+用于创建和管理虚拟环境的模块称为 [`venv`](https://docs.python.org/zh-cn/3.11/library/venv.html#module-venv)。[`venv`](https://docs.python.org/zh-cn/3.11/library/venv.html#module-venv) 通常会安装你可用的最新版本的 Python。如果您的系统上有多个版本的 Python，您可以通过运行 `python3` 或您想要的任何版本来选择特定的Python版本。
 
-要创建虚拟环境，请确定要放置它的目录，并将 [`venv`](https://docs.python.org/zh-cn/3/library/venv.html#module-venv) 模块作为脚本运行目录路径:
+要创建虚拟环境，请确定要放置它的目录，并将 [`venv`](https://docs.python.org/zh-cn/3.11/library/venv.html#module-venv) 模块作为脚本运行目录路径:
 
 ```
 python -m venv tutorial-env
@@ -78,7 +78,7 @@ into the terminal.
 
 You can install, upgrade, and remove packages using a program called **pip**. By default `pip` will install packages from the [Python Package Index](https://pypi.org/). You can browse the Python Package Index by going to it in your web browser.
 
-`pip` 有许多子命令: "install", "uninstall", "freeze" 等等。 （请在 [安装 Python 模块](https://docs.python.org/zh-cn/3/installing/index.html#installing-index) 指南页查看完整的 `pip` 文档。）
+`pip` 有许多子命令: "install", "uninstall", "freeze" 等等。 （请在 [安装 Python 模块](https://docs.python.org/zh-cn/3.11/installing/index.html#installing-index) 指南页查看完整的 `pip` 文档。）
 
 您可以通过指定包的名称来安装最新版本的包：
 
@@ -168,4 +168,4 @@ Installing collected packages: novas, numpy, requests
 Successfully installed novas-3.1.1.3 numpy-1.9.2 requests-2.7.0
 ```
 
-`pip` 有更多选择。有关 `pip` 的完整文档，请参阅 [安装 Python 模块](https://docs.python.org/zh-cn/3/installing/index.html#installing-index) 指南。当您编写一个包并希望在 Python 包索引中使它可用时，请参考 [分发 Python 模块](https://docs.python.org/zh-cn/3/distributing/index.html#distributing-index) 指南。
+`pip` 有更多选择。有关 `pip` 的完整文档，请参阅 [安装 Python 模块](https://docs.python.org/zh-cn/3.11/installing/index.html#installing-index) 指南。当您编写一个包并希望在 Python 包索引中使它可用时，请参考 [分发 Python 模块](https://docs.python.org/zh-cn/3.11/distributing/index.html#distributing-index) 指南。

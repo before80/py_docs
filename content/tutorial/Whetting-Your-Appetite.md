@@ -10,7 +10,7 @@ draft = false
 
 # 1. 课前甜点
 
-https://docs.python.org/zh-cn/3/tutorial/appetite.html
+https://docs.python.org/zh-cn/3.11/tutorial/appetite.html
 
 ​	如果您的工作主要是用电脑完成的，总有一天您会想能不能自动执行一些任务。比如，对大量文本文件执行查找、替换操作；利用复杂的规则重命名、重排序一堆照片文件；也可能您想编写一个小型数据库、或开发专用的图形界面应用，甚至是开发一个简单的游戏。
 

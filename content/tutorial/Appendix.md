@@ -10,7 +10,7 @@ draft = false
 
 # 16. 附录
 
-https://docs.python.org/zh-cn/3/tutorial/appendix.html
+https://docs.python.org/zh-cn/3.11/tutorial/appendix.html
 
 
 
@@ -20,9 +20,9 @@ https://docs.python.org/zh-cn/3/tutorial/appendix.html
 
 ### 16.1.1. 错误处理
 
-当发生错误时，解释器会打印错误信息和错误堆栈。在交互模式下，将返回到主命令提示符；如果输入内容来自文件，在打印错误堆栈之后，程序会以非零状态退出。（这里所说的错误不包括 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句中由 [`except`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#except) 所捕获的异常。）有些错误是无条件致命的，会导致程序以非零状态退出；比如内部逻辑矛盾或内存耗尽。所有错误信息都会被写入标准错误流；而命令的正常输出则被写入标准输出流。
+当发生错误时，解释器会打印错误信息和错误堆栈。在交互模式下，将返回到主命令提示符；如果输入内容来自文件，在打印错误堆栈之后，程序会以非零状态退出。（这里所说的错误不包括 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句中由 [`except`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#except) 所捕获的异常。）有些错误是无条件致命的，会导致程序以非零状态退出；比如内部逻辑矛盾或内存耗尽。所有错误信息都会被写入标准错误流；而命令的正常输出则被写入标准输出流。
 
-将中断字符（通常为 Control-C 或 Delete ）键入主要或辅助提示会取消输入并返回主提示符。 [1](https://docs.python.org/zh-cn/3/tutorial/appendix.html#id2) 在执行命令时键入中断引发的 [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3/library/exceptions.html#KeyboardInterrupt) 异常，可以由 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 语句处理。
+将中断字符（通常为 Control-C 或 Delete ）键入主要或辅助提示会取消输入并返回主提示符。 [1](https://docs.python.org/zh-cn/3.11/tutorial/appendix.html#id2) 在执行命令时键入中断引发的 [`KeyboardInterrupt`](https://docs.python.org/zh-cn/3.11/library/exceptions.html#KeyboardInterrupt) 异常，可以由 [`try`](https://docs.python.org/zh-cn/3.11/reference/compound_stmts.html#try) 语句处理。
 
 
 
@@ -48,7 +48,7 @@ $ chmod +x myscript.py
 
 ### 16.1.3. 交互式启动文件
 
-当您以交互方式使用Python时，每次启动解释器时都会执行一些标准命令，这通常很方便。您可以通过将名为 [`PYTHONSTARTUP`](https://docs.python.org/zh-cn/3/using/cmdline.html#envvar-PYTHONSTARTUP) 的环境变量设置为包含启动命令的文件名来实现。这类似于Unix shell的 `.profile` 功能。
+当您以交互方式使用Python时，每次启动解释器时都会执行一些标准命令，这通常很方便。您可以通过将名为 [`PYTHONSTARTUP`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#envvar-PYTHONSTARTUP) 的环境变量设置为包含启动命令的文件名来实现。这类似于Unix shell的 `.profile` 功能。
 
 此文件只会在交互式会话时读取，而非在 Python 从脚本读取指令或是在给定 `/dev/tty` 为指令的明确来源时（后者反而表现得像是一个交互式会话）。 该文件执行时所在的命名空间与交互式指令相同，所以它定义或导入的对象可以在交互式会话中直接使用。 你也可以在该文件中更改提示符 `sys.ps1` 和 `sys.ps2`。
 
@@ -77,12 +77,12 @@ Python提供了两个钩子来让你自定义它：`sitecustomize` 和 `usercust
 '/home/user/.local/lib/python3.5/site-packages'
 ```
 
-现在，您可以在该目录中创建一个名为 `usercustomize.py` 的文件，并将所需内容放入其中。它会影响Python的每次启动，除非它以 [`-s`](https://docs.python.org/zh-cn/3/using/cmdline.html#cmdoption-s) 选项启动，以禁用自动导入。
+现在，您可以在该目录中创建一个名为 `usercustomize.py` 的文件，并将所需内容放入其中。它会影响Python的每次启动，除非它以 [`-s`](https://docs.python.org/zh-cn/3.11/using/cmdline.html#cmdoption-s) 选项启动，以禁用自动导入。
 
-`sitecustomize` 以相同的方式工作，但通常由计算机管理员在全局 site-packages 目录中创建，并在 `usercustomize` 之前被导入。有关详情请参阅 [`site`](https://docs.python.org/zh-cn/3/library/site.html#module-site) 模块的文档。
+`sitecustomize` 以相同的方式工作，但通常由计算机管理员在全局 site-packages 目录中创建，并在 `usercustomize` 之前被导入。有关详情请参阅 [`site`](https://docs.python.org/zh-cn/3.11/library/site.html#module-site) 模块的文档。
 
 备注
 
-- [1](https://docs.python.org/zh-cn/3/tutorial/appendix.html#id1)
+- [1](https://docs.python.org/zh-cn/3.11/tutorial/appendix.html#id1)
 
   GNU Readline 包的问题可能会阻止这种情况。

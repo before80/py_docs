@@ -10,7 +10,7 @@ draft = false
 
 # 15. 浮点算术：争议和限制
 
-https://docs.python.org/zh-cn/3/tutorial/floatingpoint.html
+https://docs.python.org/zh-cn/3.11/tutorial/floatingpoint.html
 
 Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the **decimal** fraction `0.125` has value 1/10 + 2/100 + 5/1000, and in the same way the **binary** fraction `0.001` has value 0/2 + 0/4 + 1/8. These two fractions have identical values, the only real difference being that the first is written in base 10 fractional notation, and the second in base 2.
 
@@ -66,7 +66,7 @@ Floating-point numbers are represented in computer hardware as base 2 (binary) f
 
 有趣的是，有许多不同的十进制数共享相同的最接近的近似二进制小数。例如， `0.1` 、 `0.10000000000000001` 、 `0.1000000000000000055511151231257827021181583404541015625` 全都近似于 `3602879701896397 / 2 ** 55` 。由于所有这些十进制值都具有相同的近似值，因此可以显示其中任何一个，同时仍然保留不变的 `eval(repr(x)) == x` 。
 
-在历史上，Python 提示符和内置的 [`repr()`](https://docs.python.org/zh-cn/3/library/functions.html#repr) 函数会选择具有 17 位有效数字的来显示，即 `0.10000000000000001`。 从 Python 3.1 开始，Python（在大多数系统上）现在能够选择这些表示中最短的并简单地显示 `0.1` 。
+在历史上，Python 提示符和内置的 [`repr()`](https://docs.python.org/zh-cn/3.11/library/functions.html#repr) 函数会选择具有 17 位有效数字的来显示，即 `0.10000000000000001`。 从 Python 3.1 开始，Python（在大多数系统上）现在能够选择这些表示中最短的并简单地显示 `0.1` 。
 
 请注意这种情况是二进制浮点数的本质特性：它不是 Python 的错误，也不是你代码中的错误。 你会在所有支持你的硬件中的浮点运算的语言中发现同样的情况（虽然某些语言在默认状态或所有输出模块下都不会 *显示* 这种差异）。
 
@@ -96,7 +96,7 @@ Floating-point numbers are represented in computer hardware as base 2 (binary) f
 False
 ```
 
-而且，由于这个 0.1 无法精确表示 1/10 的值而这个 0.3 也无法精确表示 3/10 的值，使用 [`round()`](https://docs.python.org/zh-cn/3/library/functions.html#round) 函数进行预先舍入也是没用的:
+而且，由于这个 0.1 无法精确表示 1/10 的值而这个 0.3 也无法精确表示 3/10 的值，使用 [`round()`](https://docs.python.org/zh-cn/3.11/library/functions.html#round) 函数进行预先舍入也是没用的:
 
 \>>>
 
@@ -105,7 +105,7 @@ False
 False
 ```
 
-虽然这些小数无法精确表示其所要代表的实际值，[`round()`](https://docs.python.org/zh-cn/3/library/functions.html#round) 函数还是可以用来“事后舍入”，使得实际的结果值可以做相互比较:
+虽然这些小数无法精确表示其所要代表的实际值，[`round()`](https://docs.python.org/zh-cn/3.11/library/functions.html#round) 函数还是可以用来“事后舍入”，使得实际的结果值可以做相互比较:
 
 \>>>
 
@@ -118,15 +118,15 @@ Binary floating-point arithmetic holds many surprises like this. The problem wit
 
 正如那篇文章的结尾所言，“对此问题并无简单的答案。” 但是也不必过于担心浮点数的问题！ Python 浮点运算中的错误是从浮点运算硬件继承而来，而在大多数机器上每次浮点运算得到的 2**53 数码位都会被作为 1 个整体来处理。 这对大多数任务来说都已足够，但你确实需要记住它并非十进制算术，且每次浮点运算都可能会导致新的舍入错误。
 
-虽然病态的情况确实存在，但对于大多数正常的浮点运算使用来说，你只需简单地将最终显示的结果舍入为你期望的十进制数值即可得到你期望的结果。 [`str()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str) 通常已足够，对于更精度的控制可参看 [格式字符串语法](https://docs.python.org/zh-cn/3/library/string.html#formatstrings) 中 [`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 方法的格式描述符。
+虽然病态的情况确实存在，但对于大多数正常的浮点运算使用来说，你只需简单地将最终显示的结果舍入为你期望的十进制数值即可得到你期望的结果。 [`str()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str) 通常已足够，对于更精度的控制可参看 [格式字符串语法](https://docs.python.org/zh-cn/3.11/library/string.html#formatstrings) 中 [`str.format()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#str.format) 方法的格式描述符。
 
-对于需要精确十进制表示的使用场景，请尝试使用 [`decimal`](https://docs.python.org/zh-cn/3/library/decimal.html#module-decimal) 模块，该模块实现了适合会计应用和高精度应用的十进制运算。
+对于需要精确十进制表示的使用场景，请尝试使用 [`decimal`](https://docs.python.org/zh-cn/3.11/library/decimal.html#module-decimal) 模块，该模块实现了适合会计应用和高精度应用的十进制运算。
 
-另一种形式的精确运算由 [`fractions`](https://docs.python.org/zh-cn/3/library/fractions.html#module-fractions) 模块提供支持，该模块实现了基于有理数的算术运算（因此可以精确表示像 1/3 这样的数值）。
+另一种形式的精确运算由 [`fractions`](https://docs.python.org/zh-cn/3.11/library/fractions.html#module-fractions) 模块提供支持，该模块实现了基于有理数的算术运算（因此可以精确表示像 1/3 这样的数值）。
 
 If you are a heavy user of floating-point operations you should take a look at the NumPy package and many other packages for mathematical and statistical operations supplied by the SciPy project. See <[https://scipy.org](https://scipy.org/)>.
 
-Python 也提供了一些工具，可以在你真的 *想要* 知道一个浮点数精确值的少数情况下提供帮助。 例如 [`float.as_integer_ratio()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#float.as_integer_ratio) 方法会将浮点数表示为一个分数:
+Python 也提供了一些工具，可以在你真的 *想要* 知道一个浮点数精确值的少数情况下提供帮助。 例如 [`float.as_integer_ratio()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#float.as_integer_ratio) 方法会将浮点数表示为一个分数:
 
 \>>>
 
@@ -145,7 +145,7 @@ Python 也提供了一些工具，可以在你真的 *想要* 知道一个浮点
 True
 ```
 
-[`float.hex()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#float.hex) 方法会以十六进制（以 16 为基数）来表示浮点数，同样能给出保存在你的计算机中的精确值:
+[`float.hex()`](https://docs.python.org/zh-cn/3.11/library/stdtypes.html#float.hex) 方法会以十六进制（以 16 为基数）来表示浮点数，同样能给出保存在你的计算机中的精确值:
 
 \>>>
 
@@ -165,7 +165,7 @@ True
 
 由于这种表示法是精确的，它适用于跨越不同版本（平台无关）的 Python 移植数值，以及与支持相同格式的其他语言（例如 Java 和 C99）交换数据.
 
-另一个有用的工具是 [`math.fsum()`](https://docs.python.org/zh-cn/3/library/math.html#math.fsum) 函数，它有助于减少求和过程中的精度损失。 它会在数值被添加到总计值的时候跟踪“丢失的位”。 这可以很好地保持总计值的精确度， 使得错误不会积累到能影响结果总数的程度:
+另一个有用的工具是 [`math.fsum()`](https://docs.python.org/zh-cn/3.11/library/math.html#math.fsum) 函数，它有助于减少求和过程中的精度损失。 它会在数值被添加到总计值的时候跟踪“丢失的位”。 这可以很好地保持总计值的精确度， 使得错误不会积累到能影响结果总数的程度:
 
 \>>>
 
@@ -265,7 +265,7 @@ So the computer never "sees" 1/10: what it sees is the exact fraction given abov
 '0.10000000000000001'
 ```
 
-[`fractions`](https://docs.python.org/zh-cn/3/library/fractions.html#module-fractions) 和 [`decimal`](https://docs.python.org/zh-cn/3/library/decimal.html#module-decimal) 模块可令进行此类计算更加容易:
+[`fractions`](https://docs.python.org/zh-cn/3.11/library/fractions.html#module-fractions) 和 [`decimal`](https://docs.python.org/zh-cn/3.11/library/decimal.html#module-decimal) 模块可令进行此类计算更加容易:
 
 \>>>
 
